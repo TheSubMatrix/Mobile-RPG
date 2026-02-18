@@ -1,0 +1,17 @@
+{
+    "name": "MobileRPG.UI.Controls",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f6a0da6c76f2acf47af6e835216b3f47",
+        "GUID:be1a429d03b45824a86b659628380fd7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
