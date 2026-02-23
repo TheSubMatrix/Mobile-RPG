@@ -8,7 +8,7 @@ public class KillEnemiesQuest : IQuest
     uint m_requiredKills;
     Action<IQuest, IQuestFactory> m_onQuestEnded;
     IQuestFactory m_nextQuest;
-    KillEnemiesQuest(){}
+    KillEnemiesQuest() { }
     /// <summary>
     /// Creates the quest instance and initializes it with the event references and data needed for it to run independently
     /// </summary>

@@ -12,12 +12,12 @@ public class KillEnemiesQuestDefinitionSO : ScriptableObject, IQuestDefinition<K
     /// <summary>
     /// A reference to any <see cref="IQuest"/> that will be automatically initiated after this quest completes
     /// </summary>
-    [field: SerializeField] public InterfaceReference<IQuestFactory, ScriptableObject> NextQuest{get; private set;}  
-    [field:SerializeField] public UnityEvent<uint> OnQuestKillCountUpdated { get; private set; }
+    [field: SerializeField] public InterfaceReference<IQuestFactory, ScriptableObject> NextQuest { get; private set; }
+    [field: SerializeField] public UnityEvent<uint> OnQuestKillCountUpdated { get; private set; }
     /// <summary>
     /// The total number of kills needed to complete this quest
     /// </summary>
-    [field:SerializeField] public uint TotalKillCount { get; private set; }
+    [field: SerializeField] public uint TotalKillCount { get; private set; }
     /// <inheritdoc/>
     public IQuest CreateInstanceAndInitialize()
     {
@@ -25,7 +25,7 @@ public class KillEnemiesQuestDefinitionSO : ScriptableObject, IQuestDefinition<K
         return KillEnemiesQuest.CreateAndInitialize(this);
     }
     /// <inheritdoc/>
-    [field:SerializeField] public UnityEvent<KillEnemiesQuest> OnQuestInstanceStarted { get; private set; }
+    [field: SerializeField] public UnityEvent<KillEnemiesQuest> OnQuestInstanceStarted { get; private set; }
     /// <inheritdoc/>
 
     [field: SerializeField] public UnityEvent<KillEnemiesQuest, IQuestFactory> OnQuestInstanceEnded { get; private set; } = new();
