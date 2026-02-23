@@ -1,28 +1,30 @@
 using System;
+using UnityEngine;
 /// <summary>
 /// A quest where the user kills a specified number of enemies
 /// </summary>
-public class KillEnemiesQuest : IQuest
+public class FindItemQuest : IQuest
 {
     uint m_currentKills;
     uint m_requiredKills;
     Action<IQuest, IQuestFactory> m_onQuestEnded;
     IQuestFactory m_nextQuest;
-    KillEnemiesQuest() { }
+    FindItemQuest() { }
     /// <summary>
     /// Creates the quest instance and initializes it with the event references and data needed for it to run independently
     /// </summary>
     /// <param name="definition">The quest definition creating the quest</param>
-    /// <returns>The new <see cref="KillEnemiesQuest"/> instance</returns>
-    public static KillEnemiesQuest CreateAndInitialize(KillEnemiesQuestDefinitionSO definition)
+    /// <returns>The new <see cref="FindItemQuest"/> instance</returns>
+    public static FindItemQuest CreateAndInitialize(FindItemQuestDefinitionSO definition)
     {
-        KillEnemiesQuest quest = new()
+        FindItemQuest quest = new()
         {
             m_requiredKills = definition.TotalKillCount
         };
         quest.m_onQuestEnded += definition.OnQuestEnded.Invoke;
         quest.m_nextQuest = definition.NextQuest.Value;
         definition.OnQuestInstanceStarted.Invoke(quest);
+        Debug.Log($"Quest {quest.GetType().Name} started");
         return quest;
     }
 
@@ -33,10 +35,8 @@ public class KillEnemiesQuest : IQuest
     public void IncrementKillCount(uint count)
     {
         m_currentKills += count;
-        if (m_currentKills >= m_requiredKills)
-        {
-            m_onQuestEnded.Invoke(this, m_nextQuest);
-        }
+        if (m_currentKills < m_requiredKills) return;
+        m_onQuestEnded.Invoke(this, m_nextQuest);
     }
     /// <inheritdoc/>
     public float Progress => (float)m_currentKills / m_requiredKills;

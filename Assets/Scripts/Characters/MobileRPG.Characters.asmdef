@@ -4,7 +4,9 @@
     "references": [
         "Unity.InputSystem",
         "MatrixUtils.GenericDatatypes",
-        "MatrixUtils.Attributes"
+        "MatrixUtils.Attributes",
+        "MobileRPG.Interactables",
+        "MobileRPG.Quests"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
