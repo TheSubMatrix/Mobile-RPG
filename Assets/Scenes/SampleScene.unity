@@ -1424,8 +1424,10 @@ GameObject:
   - component: {fileID: 1205851219}
   - component: {fileID: 1205851221}
   - component: {fileID: 1205851223}
+  - component: {fileID: 1205851225}
+  - component: {fileID: 1205851224}
   m_Layer: 3
-  m_Name: Circle
+  m_Name: Player Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,7 +1459,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1205851215
 SpriteRenderer:
   serializedVersion: 2
@@ -1507,7 +1509,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b62a8e74a325e4493956501c30341010, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1689,6 +1691,43 @@ MonoBehaviour:
   <OnRevive>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &1205851224
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205851212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d91af7ee1d5918946ba0e2f431b0830c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1205851225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205851212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b8bb3d6020c0a4f9f015e0ba4eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MobileRPG.Characters::PlayerAnimationController
+  m_speedParameter: speed
+  m_verticalMovement: verticalMovement
+  m_horizontalMovement: horizontalMovement
 --- !u!1 &1210760217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,8 +1757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08a0487cf919b242bd88b401c942576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MobileRPG.Quests::QuestManager
-  m_initialQuest:
-    m_underlyingValue: {fileID: 0}
 --- !u!4 &1210760219
 Transform:
   m_ObjectHideFlags: 0

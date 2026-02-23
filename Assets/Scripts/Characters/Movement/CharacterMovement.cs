@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour, IMovementHandler
     }
     public void Move(Vector2 direction)
     {
+        
         m_rb.linearVelocity = direction * m_speed;
     }
 }
