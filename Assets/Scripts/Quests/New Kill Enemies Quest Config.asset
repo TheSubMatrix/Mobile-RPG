@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd44f4e8d37da249a72c4b4d2f5bcbf, type: 3}
   m_Name: New Kill Enemies Quest Config
   m_EditorClassIdentifier: MobileRPG.Quests::KillEnemiesQuestConfigSO
-  <OnQuestEnded>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
+  <ItemToFind>k__BackingField: {fileID: 0}
+  <NextQuest>k__BackingField:
+    m_underlyingValue: {fileID: 0}
   <OnQuestKillCountUpdated>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  <TotalKillCount>k__BackingField: 0
+  <TotalKillCount>k__BackingField: 15
   <OnQuestInstanceStarted>k__BackingField:
     m_PersistentCalls:
       m_Calls: []

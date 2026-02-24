@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 279981418}
   - component: {fileID: 279981420}
   - component: {fileID: 279981421}
+  - component: {fileID: 279981422}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Untagged
@@ -282,7 +283,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df894d170d5f44be293fae0ef08b055c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -319,6 +320,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec23e1c449faa5488979966b3c71cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MobileRPG.Interactables::InteractableTest
+  m_onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 279981422}
+        m_TargetAssemblyTypeName: NPC, MobileRPG.Characters
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &279981421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -365,6 +381,27 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &279981422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279981417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04967fc7e62cef45bc3b12f89b23547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MobileRPG.Characters::NPC
+  m_interactionCommand:
+    rid: 4421949335907860591
+  references:
+    version: 2
+    RefIds:
+    - rid: 4421949335907860591
+      type: {class: GiveFindItemQuestCommand, ns: , asm: MobileRPG.Characters}
+      data:
+        m_questDefinition: {fileID: 11400000, guid: 9e6b9ebc9d9642142879957ef01d8643, type: 2}
 --- !u!1 &335259638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,13 +1456,14 @@ GameObject:
   - component: {fileID: 1205851215}
   - component: {fileID: 1205851214}
   - component: {fileID: 1205851217}
+  - component: {fileID: 1205851224}
   - component: {fileID: 1205851222}
   - component: {fileID: 1205851218}
   - component: {fileID: 1205851219}
   - component: {fileID: 1205851221}
   - component: {fileID: 1205851223}
   - component: {fileID: 1205851225}
-  - component: {fileID: 1205851224}
+  - component: {fileID: 1205851226}
   m_Layer: 3
   m_Name: Player Character
   m_TagString: Untagged
@@ -1728,50 +1766,18 @@ MonoBehaviour:
   m_speedParameter: speed
   m_verticalMovement: verticalMovement
   m_horizontalMovement: horizontalMovement
---- !u!1 &1210760217
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1210760219}
-  - component: {fileID: 1210760218}
-  m_Layer: 0
-  m_Name: Quest Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1210760218
+--- !u!114 &1205851226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210760217}
+  m_GameObject: {fileID: 1205851212}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d08a0487cf919b242bd88b401c942576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MobileRPG.Quests::QuestManager
---- !u!4 &1210760219
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210760217}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5306, y: -0.01663, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1223206602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,4 +1926,3 @@ SceneRoots:
   - {fileID: 1205851216}
   - {fileID: 373193386}
   - {fileID: 279981419}
-  - {fileID: 1210760219}
