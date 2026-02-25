@@ -22,7 +22,7 @@ public class FindItemQuest : IQuest
         };
         quest.m_onQuestEnded += definition.OnQuestEnded.Invoke;
         quest.m_nextQuest = definition.NextQuest.Value;
-        definition.OnQuestInstanceStarted.Invoke(quest);
+        definition.OnQuestInstanceStarted.Invoke(quest, definition);
         Debug.Log($"Quest {quest.GetType().Name} started");
         return quest;
     }

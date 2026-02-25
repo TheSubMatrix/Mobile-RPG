@@ -11,7 +11,7 @@ public class CharacterInteractor : MonoBehaviour, IInteractionHandler
         for(int i = 0; i < count; i++)
         {
             if (!m_foundColliders[i].TryGetComponent(out IInteractable interactable)) continue;
-            interactable.Interact(gameObject);
+            interactable.Interact(m_foundColliders[i].gameObject, gameObject);
             break;
         }
     }

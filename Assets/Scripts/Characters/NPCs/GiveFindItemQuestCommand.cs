@@ -5,7 +5,8 @@ public class GiveFindItemQuestCommand : INPCCommand
 {
     [SerializeField] FindItemQuestDefinitionSO m_questDefinition;
 
-    public void Execute(GameObject executionRequester)
+
+    public void Execute(GameObject interacted, GameObject executionRequester)
     {
         if (executionRequester.TryGetComponent(out QuestManager questManager))
         {

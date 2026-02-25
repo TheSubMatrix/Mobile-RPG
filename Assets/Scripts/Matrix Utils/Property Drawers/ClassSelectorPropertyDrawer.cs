@@ -23,8 +23,6 @@ namespace MatrixUtils.PropertyDrawers
         {
             m_attributeData = attribute as ClassSelectorAttribute;
             m_isManagedReference = property.propertyType == SerializedPropertyType.ManagedReference;
-
-            // Infer base type from field if not provided
             Type baseType = m_attributeData?.Type;
             if (baseType == null)
             {

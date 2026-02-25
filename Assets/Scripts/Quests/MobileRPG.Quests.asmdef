@@ -1,4 +1,4 @@
 {
 	"name": "MobileRPG.Quests",
-	"references":[ "GUID:f6a0da6c76f2acf47af6e835216b3f47", "GUID:a3aab014a8e3ef4438300f4c5a6e46fd", "GUID:25282b0674f839149adb67c1f6d377b0" ]
+	"references":[ "GUID:f6a0da6c76f2acf47af6e835216b3f47", "GUID:a3aab014a8e3ef4438300f4c5a6e46fd", "GUID:25282b0674f839149adb67c1f6d377b0", "GUID:ab6941eb07ac8bc47a28522b764db8ea" ]
 }

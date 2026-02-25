@@ -9,6 +9,8 @@ public class FindItemQuestDefinitionSO : ScriptableObject, IQuestDefinition<Find
 {
     [field: SerializeField] public ItemSO ItemToFind { get; private set; }
     /// <inheritdoc/>
+    public Action<IQuest, IQuestFactory> OnQuestStarted { get; set; }
+    /// <inheritdoc/>
     public Action<IQuest, IQuestFactory> OnQuestEnded { get; set; } = delegate { };
     /// <summary>
     /// A reference to any <see cref="IQuest"/> that will be automatically initiated after this quest completes
@@ -22,17 +24,20 @@ public class FindItemQuestDefinitionSO : ScriptableObject, IQuestDefinition<Find
     /// <inheritdoc/>
     public IQuest CreateInstanceAndInitialize()
     {
-        UnityAction<FindItemQuest, IQuestFactory> handler = null;
-        handler = (quest, next) =>
+        OnQuestInstanceStarted.AddListener(OnQuestStarted.Invoke);
+        UnityAction<FindItemQuest, IQuestFactory> questEndHandler = null;
+        questEndHandler = (quest, next) =>
         {
             OnQuestEnded.Invoke(quest, next);
-            OnQuestInstanceEnded.RemoveListener(handler);
+            OnQuestInstanceStarted.RemoveListener(OnQuestStarted.Invoke);
+            OnQuestInstanceEnded.RemoveListener(questEndHandler);
         };
-        OnQuestInstanceEnded.AddListener(handler);
-        return FindItemQuest.CreateAndInitialize(this);
+        OnQuestInstanceEnded.AddListener(questEndHandler);
+        FindItemQuest quest =  FindItemQuest.CreateAndInitialize(this);
+        return quest;
     }
     /// <inheritdoc/>
-    [field: SerializeField] public UnityEvent<FindItemQuest> OnQuestInstanceStarted { get; private set; }
+    [field: SerializeField] public UnityEvent<FindItemQuest, IQuestFactory> OnQuestInstanceStarted { get; private set; }
     /// <inheritdoc/>
     [field: SerializeField] public UnityEvent<FindItemQuest, IQuestFactory> OnQuestInstanceEnded { get; private set; } = new();
 }
