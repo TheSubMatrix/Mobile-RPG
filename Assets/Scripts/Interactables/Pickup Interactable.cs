@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PickupInteractable : MonoBehaviour, IInteractable
 {
-    ItemSO m_itemToGive;
-    uint m_amountToGive;
+    [SerializeField] ItemSO m_itemToGive;
+    [SerializeField] uint m_amountToGive;
     public void Interact(GameObject self, GameObject interactor)
     {
         if (!interactor.TryGetComponent(out Inventory inventory)) return;
@@ -14,7 +14,7 @@ public class PickupInteractable : MonoBehaviour, IInteractable
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

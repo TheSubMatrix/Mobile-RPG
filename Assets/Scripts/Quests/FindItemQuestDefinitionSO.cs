@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New Find Item Quest Definition", menuName = "Scriptable Objects/Quest Definitions/Find Item Quest Definition")]
 public class FindItemQuestDefinitionSO : ScriptableObject, IQuestDefinition<FindItemQuest>
 {
+    [field: SerializeField] public uint ItemsNeeded { get; private set; } = 1;
     [field: SerializeField] public ItemSO ItemToFind { get; private set; }
     /// <inheritdoc/>
     public Action<IQuest, IQuestFactory> OnQuestStarted { get; set; }
