@@ -16,16 +16,24 @@ public class Inventory : MonoBehaviour
     [field: SerializeField] public uint MaxSlots { get; private set; } = 10;
     [field: SerializeField] public uint MaxStackSize { get; private set; } = 99;
     [ReadOnly, SerializeField] InventorySlot[] m_slots;
-    
+    public VoidEventChannel RequestInventoryData;
     public UnityEvent<InventorySlotChangedEventArgs> OnInventoryChanged;
 
     void Awake()
     {
         m_slots = new InventorySlot[MaxSlots];
+        RequestInventoryData.OnEventRaised += OnInventoryDataRequested;
     }
 
     public IReadOnlyList<InventorySlot> Slots => m_slots;
 
+    void OnInventoryDataRequested()
+    {
+        for(int i =0; i < m_slots.Length; i++)
+        {
+            OnInventoryChanged.Invoke(new(m_slots[i].Item, m_slots[i].Amount, i));
+        }
+    }
     public uint TryAddItem(ItemSO item, uint amount)
     {
         for (int i = 0; i < m_slots.Length; i++)
@@ -74,4 +82,5 @@ public class Inventory : MonoBehaviour
 
         return amount;
     }
+    
 }

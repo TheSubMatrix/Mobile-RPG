@@ -301,11 +301,9 @@ GameObject:
   - component: {fileID: 279981419}
   - component: {fileID: 279981418}
   - component: {fileID: 279981420}
-  - component: {fileID: 279981423}
   - component: {fileID: 279981424}
-  - component: {fileID: 279981427}
-  - component: {fileID: 279981426}
   - component: {fileID: 279981425}
+  - component: {fileID: 279981427}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Untagged
@@ -403,7 +401,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 279981427}
-        m_TargetAssemblyTypeName: NPC, MobileRPG.Characters
+        m_TargetAssemblyTypeName: NPC, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 0
         m_Arguments:
@@ -414,28 +412,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &279981423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279981417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51ea5a407328b1b4cb37ef0d694f1bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MobileRPG.Characters::SwapNPCCommand
-  m_npc: {fileID: 279981427}
-  m_command:
-    rid: 7607650161934467189
-  references:
-    version: 2
-    RefIds:
-    - rid: 7607650161934467189
-      type: {class: NPCDialogueCommand, ns: , asm: MobileRPG.Characters}
-      data:
-        m_dialogue: Hello
 --- !u!58 &279981424
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -484,38 +460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69eb3bb0dfba724aab5480ddb7ec578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MobileRPG.Quests::DialogueDisplayRequester
---- !u!114 &279981426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279981417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd98da9e6d5888041934b1ea3c8360aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MobileRPG.Quests::IQuestResponder
-  m_questToRespondTo:
-    m_underlyingValue: {fileID: 11400000, guid: 9e6b9ebc9d9642142879957ef01d8643, type: 2}
-  m_onQuestStarted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 279981423}
-        m_TargetAssemblyTypeName: SwapNPCCommand, MobileRPG.Characters
-        m_MethodName: Swap
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_onQuestEnded:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &279981427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,16 +471,35 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3be8ad7ef0aa704786b0ab89c43dbe3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: MobileRPG.Characters::NPC
-  InteractionCommand:
-    rid: 7607650161934467199
+  m_EditorClassIdentifier: Assembly-CSharp::NPC
+  m_currentInteractionCommand:
+    rid: 4421949405142188178
+  m_commandSwapRequests:
+  - m_changeRequest: {fileID: 11400000, guid: 407aacd2033f6f643a7fdc917654dfee, type: 2}
+    InteractionCommand:
+      rid: 4421949405142188162
   references:
     version: 2
     RefIds:
-    - rid: 7607650161934467199
-      type: {class: GiveFindItemQuestCommand, ns: , asm: MobileRPG.Characters}
+    - rid: 4421949405142188162
+      type: {class: NPCDialogueCommand, ns: , asm: Assembly-CSharp}
       data:
-        m_questDefinition: {fileID: 11400000, guid: 9e6b9ebc9d9642142879957ef01d8643, type: 2}
+        m_dialogue: Thank you so much for finding my chest!
+    - rid: 4421949405142188178
+      type: {class: NPCChainCommand, ns: , asm: Assembly-CSharp}
+      data:
+        m_commandsToChain:
+        - rid: 4421949405142188180
+        - rid: 4421949405142188181
+    - rid: 4421949405142188180
+      type: {class: NPCStartQuestCommand, ns: , asm: Assembly-CSharp}
+      data:
+        m_questFactory:
+          m_underlyingValue: {fileID: 11400000, guid: 3e4504c21a681a04f96bf2c7ab959850, type: 2}
+    - rid: 4421949405142188181
+      type: {class: NPCDialogueCommand, ns: , asm: Assembly-CSharp}
+      data:
+        m_dialogue: Find My Chest!
 --- !u!1 &360132237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,9 +2346,7 @@ GameObject:
   - component: {fileID: 1205851222}
   - component: {fileID: 1205851218}
   - component: {fileID: 1205851221}
-  - component: {fileID: 1205851223}
   - component: {fileID: 1205851225}
-  - component: {fileID: 1205851226}
   - component: {fileID: 1205851227}
   m_Layer: 3
   m_Name: Player Character
@@ -2584,54 +2545,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: MobileRPG.Characters::CharacterCoordinator
   m_capabilities:
-  - rid: 7607649997100417207
-  - rid: 7607650004595376206
+  - rid: 4421949405142188141
+  - rid: 4421949405142188142
   references:
     version: 2
     RefIds:
-    - rid: 7607649997100417207
-      type: {class: MovementCapability, ns: , asm: MobileRPG.Characters.Movement}
-      data:
-        m_source:
-          m_underlyingValue: {fileID: 220348704}
-        m_handler:
-          m_underlyingValue: {fileID: 1205851218}
-    - rid: 7607650004595376206
-      type: {class: InteractionCapability, ns: , asm: MobileRPG.Characters.Interactions}
+    - rid: 4421949405142188141
+      type: {class: InteractionCapability, ns: , asm: Assembly-CSharp}
       data:
         m_source:
           m_underlyingValue: {fileID: 826088624}
         m_handler:
           m_underlyingValue: {fileID: 1205851221}
---- !u!114 &1205851223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205851212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e948cebcd6607164b860d724facc23f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MobileRPG.Health::Health
-  <MaxHealth>k__BackingField:
-    m_value: 100
-    m_onValueChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  <CurrentHealth>k__BackingField:
-    m_value: 100
-    m_onValueChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  <IsDead>k__BackingField: 0
-  <OnDeath>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  <OnRevive>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
+    - rid: 4421949405142188142
+      type: {class: MovementCapability, ns: , asm: Assembly-CSharp}
+      data:
+        m_source:
+          m_underlyingValue: {fileID: 220348704}
+        m_handler:
+          m_underlyingValue: {fileID: 1205851218}
 --- !u!95 &1205851224
 Animator:
   serializedVersion: 7
@@ -2669,18 +2601,6 @@ MonoBehaviour:
   m_speedParameter: speed
   m_verticalMovement: verticalMovement
   m_horizontalMovement: horizontalMovement
---- !u!114 &1205851226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205851212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08a0487cf919b242bd88b401c942576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MobileRPG.Quests::QuestManager
 --- !u!114 &1205851227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2706,12 +2626,25 @@ MonoBehaviour:
     Amount: 0
   - Item: {fileID: 0}
     Amount: 0
+  RequestInventoryData: {fileID: 11400000, guid: cfb0b734814ea9c4da07b2571ec9b9e6, type: 2}
   OnInventoryChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 541500794}
         m_TargetAssemblyTypeName: InventoryDisplay, MobileRPG.UI
         m_MethodName: UpdateInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: aa99964c2ca5b1e41a526b4df0647d34, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotChangedEventChannel, Assembly-CSharp
+        m_MethodName: RaiseEvent
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

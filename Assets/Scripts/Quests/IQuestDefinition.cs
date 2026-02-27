@@ -9,9 +9,9 @@ public interface IQuestDefinition<TQuest> : IQuestFactory where TQuest : IQuest
     /// <summary>
     /// A <see cref="UnityEvent"/> invoked when an instance of the <see cref="TQuest"/> created from this object is started
     /// </summary>
-    UnityEvent<TQuest, IQuestFactory> OnQuestInstanceStarted { get; }
+    UnityEvent<QuestEventArgs<TQuest>> OnQuestInstanceStarted { get; }
     /// <summary>
     /// A <see cref="UnityEvent"/> invoked when an instance of the <see cref="TQuest"/> created from this object has completed
     /// </summary>
-    UnityEvent<TQuest, IQuestFactory> OnQuestInstanceEnded { get; }
+    UnityEvent<QuestEventArgs<TQuest>> OnQuestInstanceEnded { get; }
 }
