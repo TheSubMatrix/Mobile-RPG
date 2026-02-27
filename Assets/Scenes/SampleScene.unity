@@ -478,13 +478,16 @@ MonoBehaviour:
   - m_changeRequest: {fileID: 11400000, guid: 407aacd2033f6f643a7fdc917654dfee, type: 2}
     InteractionCommand:
       rid: 4421949405142188162
+  - m_changeRequest: {fileID: 11400000, guid: bbc034d1174ee9542ac83a2d277bcfb6, type: 2}
+    InteractionCommand:
+      rid: 4421949405142188198
   references:
     version: 2
     RefIds:
     - rid: 4421949405142188162
       type: {class: NPCDialogueCommand, ns: , asm: Assembly-CSharp}
       data:
-        m_dialogue: Thank you so much for finding my chest!
+        m_dialogue: Thank you for finding my chest!
     - rid: 4421949405142188178
       type: {class: NPCChainCommand, ns: , asm: Assembly-CSharp}
       data:
@@ -499,7 +502,11 @@ MonoBehaviour:
     - rid: 4421949405142188181
       type: {class: NPCDialogueCommand, ns: , asm: Assembly-CSharp}
       data:
-        m_dialogue: Find My Chest!
+        m_dialogue: Please help me find My Chest!
+    - rid: 4421949405142188198
+      type: {class: NPCDialogueCommand, ns: , asm: Assembly-CSharp}
+      data:
+        m_dialogue: Did you find it yet?
 --- !u!1 &360132237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,6 +2355,7 @@ GameObject:
   - component: {fileID: 1205851221}
   - component: {fileID: 1205851225}
   - component: {fileID: 1205851227}
+  - component: {fileID: 1205851228}
   m_Layer: 3
   m_Name: Player Character
   m_TagString: Untagged
@@ -2654,6 +2662,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1205851228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205851212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08155348fb031654fa8e103f84e1ab4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
 --- !u!1 &1223206602
 GameObject:
   m_ObjectHideFlags: 0
