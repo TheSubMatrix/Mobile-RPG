@@ -7,6 +7,10 @@ using UnityEngine.Events;
 /// <typeparam name="TQuest">The type of <see cref="IQuest"/> that this factory should create</typeparam>
 public abstract class QuestDefinitionSO<TQuest> : ScriptableObject, IQuestDefinition<TQuest> where TQuest : IQuest
 {
+    /// <summary>
+    /// A reference to the <see cref="IQuestFactory"/> that this should be chained after the <see cref="IQuest"/> that this <see cref="IQuestFactory"/> creates completes
+    /// </summary>
+    [field: SerializeField]public InterfaceReference<IQuestFactory, ScriptableObject> ChainedQuest { get; set; } = new();
     /// <inheritdoc/>
     [field: SerializeField] public UnityEvent<QuestEventArgs<TQuest>> OnQuestInstanceStarted { get; private set; }
     /// <inheritdoc/>
@@ -29,7 +33,7 @@ public abstract class QuestDefinitionSO<TQuest> : ScriptableObject, IQuestDefini
         };
         OnQuestInstanceEnded.AddListener(endHandler);
 
-        return CreateAndInitialize();
+        return CreateAndInitializeQuest();
     }
 
     void HandleQuestStarted(QuestEventArgs<TQuest> args)
@@ -40,5 +44,5 @@ public abstract class QuestDefinitionSO<TQuest> : ScriptableObject, IQuestDefini
     /// How this factory should create and initialize a new quest instance of type <typeparamref name="TQuest"/>
     /// </summary>
     /// <returns>The created <typeparamref name="TQuest"/> instance</returns>
-    protected abstract TQuest CreateAndInitialize();
+    protected abstract TQuest CreateAndInitializeQuest();
 }

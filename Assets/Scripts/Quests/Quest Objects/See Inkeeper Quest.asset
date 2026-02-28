@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10343cda581df71428caa5051fae6302, type: 3}
-  m_Name: New Pickup Item Quest Definition
-  m_EditorClassIdentifier: MobileRPG.Quests::PickupItemQuestDefinitionSO
+  m_Script: {fileID: 11500000, guid: c9093fee45bc14040a7f75ce94043636, type: 3}
+  m_Name: See Inkeeper Quest
+  m_EditorClassIdentifier: Assembly-CSharp::AwaitVoidEventQuestDefinitionSO
+  <ChainedQuest>k__BackingField:
+    m_underlyingValue: {fileID: 0}
   <OnQuestInstanceStarted>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: bbc034d1174ee9542ac83a2d277bcfb6, type: 2}
+      - m_Target: {fileID: 11400000, guid: 79eb499f3de281f40a950e753fdc4388, type: 2}
         m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
         m_MethodName: RaiseEvent
         m_Mode: 1
@@ -30,7 +32,7 @@ MonoBehaviour:
   <OnQuestInstanceEnded>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 407aacd2033f6f643a7fdc917654dfee, type: 2}
+      - m_Target: {fileID: 11400000, guid: ff82a684b6598d24385469eaa863c2f6, type: 2}
         m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
         m_MethodName: RaiseEvent
         m_Mode: 1
@@ -42,7 +44,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ItemToPickup: {fileID: 11400000, guid: 00db434c56a5bcc43800bfda3839150c, type: 2}
-  AmountToPickup: 1
-  InventorySlotChangedEventChannel: {fileID: 11400000, guid: aa99964c2ca5b1e41a526b4df0647d34, type: 2}
-  RequestInventoryUpdate: {fileID: 11400000, guid: cfb0b734814ea9c4da07b2571ec9b9e6, type: 2}
+  m_eventChannel: {fileID: 11400000, guid: e675453a103b48a44a88c662ca1e482d, type: 2}

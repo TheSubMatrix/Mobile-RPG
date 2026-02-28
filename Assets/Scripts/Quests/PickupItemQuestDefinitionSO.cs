@@ -4,9 +4,9 @@ public class PickupItemQuestDefinitionSO : QuestDefinitionSO<PickupItemQuest>
 {
     public ItemSO ItemToPickup;
     public uint AmountToPickup;
-    public InventorySlotChangedEventChannel InventorySlotChangedEventChannel;
+    public InventoryItemCountChangedEventChannel InventoryItemCountChangedEventChannel;
     public VoidEventChannel RequestInventoryUpdate;
-    protected override PickupItemQuest CreateAndInitialize()
+    protected override PickupItemQuest CreateAndInitializeQuest()
     {
         return PickupItemQuest.CreateInstance(this);
     }

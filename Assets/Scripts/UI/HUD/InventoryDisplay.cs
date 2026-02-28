@@ -17,7 +17,7 @@ public class InventoryDisplay : MonoBehaviour
     {
         if(m_slotDisplayData.Count - 1 < slotChangeData.SlotIndex) return;
         m_slotDisplayData[slotChangeData.SlotIndex].ItemAmountText.text = slotChangeData.NewSlotCount.ToString();
-        if(slotChangeData.Item is null) return;
+        if(slotChangeData.Item is null) {m_slotDisplayData[slotChangeData.SlotIndex].ItemDisplayImage.sprite = null; return;}
         m_slotDisplayData[slotChangeData.SlotIndex].ItemDisplayImage.sprite = slotChangeData.Item.ItemSprite;
     }
 }

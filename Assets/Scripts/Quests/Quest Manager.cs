@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     void OnQuestEnded(QuestEventArgs<IQuest> args)
     {
         args.Creator.OnQuestEnded -= OnQuestEnded;
+        m_currentQuest = null;
         if(args.Next == null){ return;}
         StartQuest(args.Next);
     }
