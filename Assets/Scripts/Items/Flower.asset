@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Flower
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   <ItemName>k__BackingField: Flower
-  <ItemSprite>k__BackingField: {fileID: 21300048, guid: 61bda409e13a345bcb9e55db18b42f74, type: 3}
+  <ItemSprite>k__BackingField: {fileID: -1855789924996760358, guid: bdcba63d5cecee94cb905e1d0b9bc936, type: 3}
