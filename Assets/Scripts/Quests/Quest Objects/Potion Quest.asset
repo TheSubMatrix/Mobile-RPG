@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10343cda581df71428caa5051fae6302, type: 3}
+  m_Name: Potion Quest
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItemQuestDefinitionSO
+  <ChainedQuest>k__BackingField:
+    m_underlyingValue: {fileID: 0}
+  <OnQuestInstanceStarted>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0e3010f92a1d7bb4184e1a2d6d336cbd, type: 2}
+        m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnQuestInstanceEnded>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 46425035e05d68d49b1b0404f408417e, type: 2}
+        m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ItemToPickup: {fileID: 11400000, guid: 466b30ca5219490479d3d393d3afffdd, type: 2}
+  AmountToPickup: 1
+  InventoryItemCountChangedEventChannel: {fileID: 11400000, guid: a18f6c5507e702f41a9b3e19a2041614, type: 2}
+  RequestInventoryUpdate: {fileID: 11400000, guid: cfb0b734814ea9c4da07b2571ec9b9e6, type: 2}
